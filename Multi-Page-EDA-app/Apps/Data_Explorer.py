@@ -15,9 +15,10 @@ def app():
     if 'main_data.csv' not in os.listdir('data'):
         st.markdown("Please upload data through `Upload Data` page.")
     else:
-        df = pd.read_csv('data/main_data.csv')
-        # df_visual = pd.DataFrame(df_analysis)
-        df = df.copy()
+        try:
+            df = pd.read_csv('data/Main.csv')
+        except Exception as e:
+             df = pd.read_excel('data/Main.csv')
 
     # Show Dataset
     try:
