@@ -19,7 +19,7 @@ def app():
 
     st.write('Construct standard graphs for variables of your choice')
     
-    if 'main_data.csv' not in os.listdir('data'):
+    if 'Main.csv' not in os.listdir('data'):
         st.markdown("Please upload data through `Upload Data` page.")
     else:
         try:
