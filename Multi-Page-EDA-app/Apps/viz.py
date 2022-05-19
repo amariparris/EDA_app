@@ -21,7 +21,7 @@ def app():
     
     if 'main_data.csv' not in os.listdir('data'):
         st.markdown("Please upload data through `Upload Data` page.")
-     else:
+    else:
         try:
             df = pd.read_csv('data/Main.csv')
         except Exception as e:
