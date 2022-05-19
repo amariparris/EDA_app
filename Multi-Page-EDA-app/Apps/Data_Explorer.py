@@ -12,7 +12,7 @@ def app():
 
     st.write('filter through the dataset and examine columns and rows of your choosing')
     
-    if 'main_data.csv' not in os.listdir('data'):
+    if 'Main.csv' not in os.listdir('data'):
         st.markdown("Please upload data through `Upload Data` page.")
     else:
         try:
