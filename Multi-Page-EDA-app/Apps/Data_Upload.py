@@ -13,16 +13,13 @@ def app():
     #add data uploader 
     uploaded_file = st.file_uploader(label = 'Upload CSV or Excel', type = ['csv', 'xlsx'], accept_multiple_files=False)
 
+    def save_uploaded_file(uploadedfile):
+        with open(os.path.join('data','Main.csv'),'wb') as f:
+            f.write(uploadedfile.getbuffer())
+            
     #make df global variable
     global df
     df = None
-    #create dataframe
+    #save file
     if uploaded_file is not None:
-        try:
-            df = pd.read_csv(uploaded_file)
-        except Exception as e: 
-            df = pd.read_excel(uploaded_file)
-    try:
-        df.to_csv('data/main_data.csv', index=False)
-    except Exception as e: 
-        pass
+        save_uploaded_file(uploaded_file)
